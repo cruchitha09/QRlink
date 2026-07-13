@@ -5,9 +5,9 @@ const { generateShortCode } = require("../utils/generateCode");
 // Create Short URL
 exports.createShortUrl = (req, res) => {
 
-    const { original_url } = req.body;
+    const { originalUrl } = req.body;
 
-    if (!original_url) {
+    if (!originalUrl) {
         return res.status(400).json({
             message: "Original URL is required"
         });
@@ -18,7 +18,7 @@ exports.createShortUrl = (req, res) => {
     const query =
         "INSERT INTO links (user_id, original_url, short_code) VALUES (?, ?, ?)";
 
-    db.query(query, [req.user.id, original_url, shortCode], (err) => {
+    db.query(query, [req.user.id, originalUrl, shortCode], (err) => {
 
         if (err) {
             return res.status(500).json({
@@ -27,8 +27,9 @@ exports.createShortUrl = (req, res) => {
         }
 
         return res.status(201).json({
-            short_code: shortCode,
-            short_url: `http://localhost:5000/${shortCode}`
+            originalUrl,
+            shortCode,
+            shortUrl: `http://localhost:5000/${shortCode}`
         });
 
     });

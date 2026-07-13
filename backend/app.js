@@ -1,6 +1,9 @@
 // Import Express framework
 const express = require("express");
 
+// Import CORS
+const cors = require("cors");
+
 // Import authentication routes
 const authRoutes = require("./routes/authRoutes");
 
@@ -9,6 +12,9 @@ const urlRoutes = require("./routes/urlRoutes");
 
 // Create an Express application
 const app = express();
+
+// Enable CORS
+app.use(cors());
 
 // Enable JSON parsing middleware
 app.use(express.json());
