@@ -238,4 +238,3 @@ https://github.com/cruchitha09
 
 ---
 
-## ⭐ If you like this project, consider giving it a Star.
