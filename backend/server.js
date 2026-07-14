@@ -9,7 +9,7 @@ require("./config/db");
 
 // Read the port number from the .env file
 const PORT = process.env.PORT || 5000;
-console.log("JWT Secret:", process.env.JWT_SECRET);
+
 // Start the Express server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
